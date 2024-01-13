@@ -1,0 +1,30 @@
+/* ImageGallery.css */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid with minimum item width of 200px */
+    gap: 16px; /* Adjust the gap between images as needed */
+    max-width: 1200px; /* Set a maximum width for the gallery */
+    margin: auto; /* Center the gallery */
+  }
+  
+  .image-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease; /* Add a transition for smoother scaling */
+  }
+
+  .image-item:hover {
+    transform: scale(1.1); /* Scale the image on hover */
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  .image-item:hover .image {
+    transform: scale(1.1); /* Scale the image on hover */
+  }
