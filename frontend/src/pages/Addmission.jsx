@@ -34,12 +34,7 @@ const Addmission = () => {
       // Send POST request to /Addmission
       const response = await axios.post('http://localhost:3000/Addmission', actData);
 
-      // useEffect(()=> {
-      //   axios.post('http://localhost:3000/Addmission', formData)
-      //     .then(res => console.log(res))
-      //     .catch(err=> console.log(err))
-      // },[])
-
+    
       // Handle the response if needed
       alert("successfully created")
       console.log('Server Response:', response.data);
@@ -47,13 +42,13 @@ const Addmission = () => {
       // Handle errors if the POST request fails
       console.error('Error:', error);
     }
-    // You can perform further processing or send the data to a server here
+    
   };
 
   return (
     <div>
-      <h2>Student Information Form</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className='text-3xl p-4 text-center bg-slate-400'>Student Information Form</h2> <br />
+      <form onSubmit={handleSubmit} className='m-6 text-xl'>
         <label htmlFor="name">Name:</label>
         <input
           type="text"
@@ -62,7 +57,8 @@ const Addmission = () => {
           value={formData.name}
           onChange={handleChange}
           required
-        />
+          className=' m-2 border solid'
+        /> <br />
 
         <label htmlFor="father">Father's Name:</label>
         <input
@@ -72,7 +68,8 @@ const Addmission = () => {
           value={formData.father}
           onChange={handleChange}
           required
-        />
+          className=' m-2 border solid'
+        /> <br />
 
         <label htmlFor="mother">Mother's Name:</label>
         <input
@@ -82,7 +79,8 @@ const Addmission = () => {
           value={formData.mother}
           onChange={handleChange}
           required
-        />
+          className=' m-2 border solid'
+        /> <br />
 
         <label htmlFor="age">Age:</label>
         <input
@@ -92,7 +90,8 @@ const Addmission = () => {
           value={formData.age}
           onChange={handleChange}
           required
-        />
+          className=' m-2 border solid'
+        /> <br />
 
         <label htmlFor="address">Address:</label>
         <input
@@ -102,9 +101,12 @@ const Addmission = () => {
           value={formData.address}
           onChange={handleChange}
           required
-        />
+          className=' m-2 border solid'
 
-        <button type="submit">Submit</button>
+        /> <br />
+        <div className='flex justify-center'>
+          <button className='bg-blue-900 text-white py-2 px-4 rounded m-4' type="submit">Submit</button>
+        </div>
       </form>
     </div>
   )

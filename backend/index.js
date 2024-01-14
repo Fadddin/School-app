@@ -13,24 +13,24 @@ app.get('/' ,(req, res) => {
 })
 
 app.post('/Addmission' ,async (req, res) => {
-    // const createPayload = req.body
-    // const parsePayload = createStudent.safeParse(createPayload);
+    const createPayload = req.body
+    const parsePayload = createStudent.safeParse(createPayload);
 
-    // if(!parsePayload.success) {
-    //     res.status(411).json({
-    //         msg: "Wrong Inputs",
-    //         errors: parsePayload.error.errors,
-    //     })
-    //     return
-    // }
+    if(!parsePayload.success) {
+        res.status(411).json({
+            msg: "Wrong Inputs",
+            errors: parsePayload.error.errors,
+        })
+        return
+    }
 
-    await Student.create(req.body)
-    //     name: createPayload.name,
-    //     father: createPayload.father,
-    //     mother: createPayload.mother,
-    //     age: createPayload.age,
-    //     address : createPayload.address,
-    // })
+    await Student.create({
+        name: createPayload.name,
+        father: createPayload.father,
+        mother: createPayload.mother,
+        age: createPayload.age,
+        address : createPayload.address,
+    })
     res.json({
         msg: "New Student created successfully"
     })
