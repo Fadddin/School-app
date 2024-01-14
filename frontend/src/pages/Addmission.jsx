@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 const Addmission = () => {
@@ -19,19 +19,29 @@ const Addmission = () => {
   };
 
   const handleSubmit = async(e) => {
+    alert("Data Submitted")
     e.preventDefault();
     console.log('Submitted Form Data:', formData);
+
+    const actData = {
+      name : formData.name,
+      father: formData.father,
+      mother: formData.mother,
+      age: Number(formData.age),
+      address: formData.address
+    }
     try {
       // Send POST request to /Addmission
-      // const response = await axios.post('http://localhost:3000/Addmission', formData);
+      const response = await axios.post('http://localhost:3000/Addmission', actData);
 
-      useEffect(()=> {
-        axios.post('http://localhost:3000/Addmission', formData)
-          .then(res => console.log(res))
-          .catch(err=> console.log(err))
-      },[])
+      // useEffect(()=> {
+      //   axios.post('http://localhost:3000/Addmission', formData)
+      //     .then(res => console.log(res))
+      //     .catch(err=> console.log(err))
+      // },[])
 
       // Handle the response if needed
+      alert("successfully created")
       console.log('Server Response:', response.data);
     } catch (error) {
       // Handle errors if the POST request fails
